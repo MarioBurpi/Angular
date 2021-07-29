@@ -7,9 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmpleadoComponent implements OnInit {
 
+  //Atributos de clase
+  nombre = "Amanda";
+  apellido = "Lorian";
+  edad = 36;
+  ubicacion = "Barcelona";
+
+  /*
+  getEdad() {
+    return this.edad;
+  }
+  */
+  printEmpresa(value: String) {
+
+  }
   constructor() { }
+
 
   ngOnInit(): void {
   }
+
+
 
 }

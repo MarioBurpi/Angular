@@ -1,1 +1,14 @@
-<p>Aqui iría un empleado</p>
+<p>Nombre: {{ nombre }}</p>
+<p>Apellido: {{ apellido }}</p>
+<p>Edad: {{ edad
+    < 18 ? "Menor de edad" : "Mayor de edad" }} </p>
+        <p>Empresa: {{ empresa.value }}</p>
+        <p>Ciudad: {{ ubicacion }}</p>
+        <label for="empresa">Introduce la empresa: </label>
+
+        <input type="text" name="empresa" id="empresa" #empresa (keyup)="0">
+
+        <!-- Asignar un evento onClick (click) -->
+        <!-- 
+       <input type="button" value="Submit" (click)="printEmpresa(empresa.value);" />
+        -->
