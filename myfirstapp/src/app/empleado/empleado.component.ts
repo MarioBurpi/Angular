@@ -15,6 +15,7 @@ export class EmpleadoComponent implements OnInit {
   apellido = "Lorian";
   edad = 36;
   ubicacion = "Barcelona";
+  empresa = "Googlay";
 
   //property binding
   disableInputTextProperty = false;
@@ -42,13 +43,8 @@ export class EmpleadoComponent implements OnInit {
        this.textoRegistro = "Hay 1 nuevo registro";
     }else{
       this.textoRegistro = "No hay registros";
-    }
-    
-
-   
+    }  
   }
-
-
 
   constructor() { }
 
