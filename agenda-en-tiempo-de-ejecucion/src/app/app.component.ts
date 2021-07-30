@@ -8,22 +8,34 @@ import { Contact } from './contact.model';
 })
 export class AppComponent {
   title = 'Contact List on runtime';
-  contacts:Contact[];
-  inputName:string = "";
-  inputSurname:string = "";
-  inputEmail:string = "";
-  inputTelephone:number = 0;
+  contacts: Contact[];
+  groups: string[];
+  inputGroup = "";
+  inputName: string = "";
+  inputSurname: string = "";
+  inputEmail: string = "";
+  inputTelephone: number = 0;
+  selectedGroup = "";
 
-  constructor(){
+  constructor() {
     this.contacts = [];
-    this.contacts.push(new Contact("Name", "Surname", "email@email.com", 666999666));
+    this.groups = ["Friends", "Family"];
+    this.contacts.push(new Contact("Group", "Name", "Surname", "email@email.com", 666999666));
   }
 
-  saveContact():void{
-    this.contacts.push(new Contact(this.inputName, this.inputSurname, this.inputEmail, this.inputTelephone));
+  saveContact(): void {
+    if (this.inputGroup != "") {
+      this.contacts.push(new Contact(this.inputGroup, this.inputName, this.inputSurname, this.inputEmail, this.inputTelephone));
+    } else {
+      this.contacts.push(new Contact(this.selectedGroup, this.inputName, this.inputSurname, this.inputEmail, this.inputTelephone));
+    }
   }
 
-  deleteContact(index:number):void{
+  deleteContact(index: number): void {
     this.contacts.splice(index, 1);
+  }
+
+  createGroup(string: string) {
+
   }
 }
