@@ -24,6 +24,6 @@ export class AppComponent {
   }
 
   deleteContact(index:number):void{
-    this.contacts.splice(index);
+    this.contacts.splice(index, 1);
   }
 }
