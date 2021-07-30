@@ -26,6 +26,7 @@ export class AppComponent {
   saveContact(): void {
     if (this.inputGroup != "") {
       this.contacts.push(new Contact(this.inputGroup, this.inputName, this.inputSurname, this.inputEmail, this.inputTelephone));
+      this.groups.push(this.inputGroup);
     } else {
       this.contacts.push(new Contact(this.selectedGroup, this.inputName, this.inputSurname, this.inputEmail, this.inputTelephone));
     }
