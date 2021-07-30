@@ -1,4 +1,4 @@
-<p>Nombre: {{ nombre }}</p>
+<p [style]="colorNombreProperty">Nombre: {{ nombre }}</p>
 <p>Apellido: {{ apellido }}</p>
 <p>Edad: {{ edad
     < 18 ? "Menor de edad" : "Mayor de edad" }} </p>
@@ -6,9 +6,15 @@
         <p>Ciudad: {{ ubicacion }}</p>
         <label for="empresa">Introduce la empresa: </label>
 
-        <input type="text" name="empresa" id="empresa" #empresa (keyup)="0">
+        <!-- Asignar el evento a (keyup) del input field -->
+        <input type="text" name="empresa" id="empresa" #empresa (keyup)="0" [disabled]="disableInputTextProperty">
 
         <!-- Asignar un evento onClick (click) -->
         <!-- 
        <input type="button" value="Submit" (click)="printEmpresa(empresa.value);" />
         -->
+        <br><br><input type="radio" name="registro" value="si" [checked]="registradoProperty" (click)="setRegistrado($event)"> Registrado
+        <br><input type="radio" name="registro" value="no" (click)="setRegistrado($event)"> No registrado
+        <p> {{ textoRegistro }} </p>
+
+        <br> {{ setColorNameToGreen() }}

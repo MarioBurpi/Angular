@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './empleado.component.html',
   styleUrls: ['./empleado.component.css']
 })
+
+
 export class EmpleadoComponent implements OnInit {
 
   //Atributos de clase
@@ -12,6 +15,13 @@ export class EmpleadoComponent implements OnInit {
   apellido = "Lorian";
   edad = 36;
   ubicacion = "Barcelona";
+
+  //property binding
+  disableInputTextProperty = false;
+  colorNombreProperty = "color: blue;"
+  registradoProperty = false;
+
+  textoRegistro = "No hay registros";
 
   /*
   getEdad() {
@@ -21,6 +31,25 @@ export class EmpleadoComponent implements OnInit {
   printEmpresa(value: String) {
 
   }
+
+  setColorNameToGreen(){
+    this.colorNombreProperty = "color:green;"
+  }
+
+  setRegistrado(event:Event){
+    //alert(event.target);
+    if((<HTMLInputElement>event.target).value == "si"){
+       this.textoRegistro = "Hay 1 nuevo registro";
+    }else{
+      this.textoRegistro = "No hay registros";
+    }
+    
+
+   
+  }
+
+
+
   constructor() { }
 
 
