@@ -1,0 +1,62 @@
+$ npm init -y       //crear proyecto de nodejs
+$ npm i express
+
+(SET UP SERVER I) 
+* Archivo index.js:  
+    - crear instancia (app) de express i aplicar metodos para que se mantenga a la escucha;
+        $ node server/index.js      //arrancar server desde terminal 
+
+(SET UP NODEMON)
+$ npm i nodemon -D      //para arrancar server cuando nodemon detecte cambios (-D para que se instale como dependencia de desarrollo y no del proyecto)
+* Archivo package.json:
+        "scripts": {
+            "dev": "nodemon server/index.js"
+        },
+        //copiar esa linea en scripts y arrancar el server mediante nodemon con:
+
+        $ npm run dev
+
+(SET UP SERVER II)
+* Archivo index.js:
+    - Middlewares:
+        $ npm i morgan      // muestra por consola las peticiones http 
+    
+    - crear la instancia de morgan y implementar su uso en express >>  app.use("morgan");
+        ahora, cuando se hace refresh, en la terminal se ve la petición que se ha realizado, resultado, tiempo, etc.
+    - configurar el server para que entienda JSON >> app.use(express.json());
+
+(SET UP DATABASE I)
+    $ npm i mongoose        // a MongoDB object modeling tool designed to work in an asynchronous environment
+    - instalar MongoDB (si no está instalado previamente) y arrancar la database por cli.
+
+* Archivo database.js:
+    - crear la instancia de mongoose y conectarlo a la URI de MongoDB.
+    - exportar el módulo.
+
+* Archivo index.js:
+    - importar la conexión a la DB y testear el funcionamiento.
+
+(SET UP ROUTES)
+* Archivo /routes/contact.routes.js:
+    - importar express para crear las rutas del server mediante el objeto express.Router();  exportar el router;
+    - testear con una petición a la raiz del proyecto:
+
+                router.get("/", (req, res) => {
+                    res.json({
+                        status: "API works"
+                    });
+                });
+
+* Archivo index.js:
+    - importar el router para que lo use app, relanzar el server y ver la respuesta json en localhost:3000/
+
+* Archivo models/contact.js:
+    - crear el modelo de datos.
+    - requerir mongoose para utilizar sus Schemas.  Crear Schema de mongoDB y almacenarlo en una constante.  Exportarla.
+
+* Archivo /routes/contact.routes.js:
+    - ahora si, crear las rutas completas para cada peticion GET o POST.
+    ** El archivo /controllers/contact.controller.js es el que va a tener todo el codigo a ejecutar en cada petición,
+    por lo que hay que requerirlo en /routes/contact.routes.js y aplicar sus métodos.
+
+
