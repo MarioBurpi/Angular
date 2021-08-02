@@ -1,3 +1,7 @@
+***********************************************
+****    SERVER NODE + EXPRESS + MongoDB    ****
+***********************************************
+
 $ npm init -y       //crear proyecto de nodejs
 $ npm i express
 
@@ -57,6 +61,64 @@ $ npm i nodemon -D      //para arrancar server cuando nodemon detecte cambios (-
 * Archivo /routes/contact.routes.js:
     - ahora si, crear las rutas completas para cada peticion GET o POST.
     ** El archivo /controllers/contact.controller.js es el que va a tener todo el codigo a ejecutar en cada petición,
-    por lo que hay que requerirlo en /routes/contact.routes.js y aplicar sus métodos.
+    por lo que hay que requerirlo en /routes/contact.routes.js y aplicar sus métodos segun petición y ruta.
+
+* Archivo /controllers/contact.controller.js:
+    - crear las respuestas de cada petición (async).
+
+---------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------     FIN DE SERVER SETUP   ------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
+
+********************
+****  ANGULAR   ****
+********************
+
+* En la carpeta del proyecto, instalar angular cli:        
+    $ npm i -g @angular/cli
+
+* También en la carpeta raiz del proyecto, crear el proyecto frontend de angular:
+    $ ng new frontend
+
+* Estructurar el proyecto:
+    - crea carpeta /frontend/src/app/components, models y services.
+    - crear componentedentro de /components -->     $ ng generate component contacts
+    - crear el modelo de datos en /models -->       $ ng g class contact
+    - crear el servicio en /services -->            $ ng g s contact 
+
+* Verificar en /frontend/src/app/app.modules.ts que se ha importado el componente contacts.  * Fijate que no se ha importado el service
+* Como en la app vamos a usar un formulario, ya que estamos aqui, importar también el FormsModule
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+** /frontend/src/index.html
+
+    * materializecss:
+    - head:    
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!-- Material+Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    - body:
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+** /frontend/src/app/app.component.html
+    - Añadir componente al html.
+    - Decorar la vista del componente principal, digamos el marco de la página (nav-bar, footer y lo que se quiera)
+
+
+** /frontend/src/app/components/contacts/contacts.component.html
+    - Decorar como vamos a querer mostrar el formulario
+    - Preparar el formulario de recogida de datos del contacto con un (ngSubmit), que recogerá los datos de #contactForm,
+    que es él mismo.
+
+-----------------------------
+
+** /frontend/src/app/services/contact.service.ts 
+    - La funcion de este archivo es definir los metodos que se van a usar y que pueden ser reutilizados para hacer el CRUD a la REST-API.
+    - importar el modulo HttpClient.
+    
 
 
