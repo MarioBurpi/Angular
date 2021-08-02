@@ -8,18 +8,16 @@ import { Contact } from '../models/contact';
 export class ContactService {
   
   readonly URL:string = "http://localhost:3000/api/contacts";
-
+  http:HttpClient;
   selectedContact: Contact;
-  allContacts:Contact[];
 
-  constructor(private http:HttpClient) { 
+  constructor(http:HttpClient) { 
+    this.http = http;
     this.selectedContact = new Contact();
-    this.allContacts = [];
   }
 
   getContacts(){
-    return this.http.get(this.URL)
-    .subscribe;
+    return this.http.get(this.URL);
   }
 
   postContact(contact: Contact){

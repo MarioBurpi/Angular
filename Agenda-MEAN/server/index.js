@@ -10,7 +10,7 @@ app.set("port", process.env.PORT || 3000); //process.env.PORT --> para que la ap
 //Middlewares
 app.use(morgan("dev")); //para ver en consola las peticiones
 app.use(express.json()); //para que el server entienda JSON
-app.use(cors({ origin: "http://localhost:4200" }));
+app.use(cors());
 
 //Routes
 app.use("/api/contacts", require("./routes/contact.routes"));

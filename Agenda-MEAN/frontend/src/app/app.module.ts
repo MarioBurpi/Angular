@@ -4,14 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http' 
 
 import { AppComponent } from './app.component';
-import { ContactsComponent } from './components/contacts/contacts.component';
-import { AllContactsComponent } from './components/all-contacts/all-contacts.component'; //
+import { AddContactComponent } from './components/add-contact/add-contact.component';
+import { ListAllContactsComponent } from './components/list-all-contacts/list-all-contacts.component'; //
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContactsComponent,
-    AllContactsComponent
+    AddContactComponent,
+    ListAllContactsComponent
   ],
   imports: [
     BrowserModule,
