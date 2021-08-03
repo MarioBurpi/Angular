@@ -6,30 +6,32 @@ import { Contact } from '../models/contact';
   providedIn: 'root'
 })
 export class ContactService {
-  
-  readonly URL:string = "http://localhost:3000/api/contacts";
-  http:HttpClient;
-  selectedContact: Contact;
 
-  constructor(http:HttpClient) { 
+  readonly URL: string = "http://localhost:3000/api/contacts/";
+  http: HttpClient;
+  selectedContact: Contact;
+  allContacts: Contact[];
+
+  constructor(http: HttpClient) {
     this.http = http;
     this.selectedContact = new Contact();
+    this.allContacts = [];
   }
 
-  getContacts(){
+  getContacts() {
     return this.http.get(this.URL);
   }
 
-  postContact(contact: Contact){
+  postContact(contact: Contact) {
     return this.http.post(this.URL, contact);
   }
 
-  putContact(contact: Contact){
-    return this.http.put(this.URL + `/${contact._id}`, contact);
+  putContact(contact: Contact) {
+    return this.http.put(this.URL + contact._id, contact);
   }
 
-  deleteContact(contact: Contact){
-    return this.http.delete(this.URL +  `/${contact._id}`)
+  deleteContact(contact: Contact) {
+    return this.http.delete(this.URL + contact._id);
   }
 
 }

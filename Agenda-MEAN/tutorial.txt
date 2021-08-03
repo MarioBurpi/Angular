@@ -82,7 +82,7 @@ $ npm i nodemon -D      //para arrancar server cuando nodemon detecte cambios (-
 
 * Estructurar el proyecto:
     - crea carpeta /frontend/src/app/components, models y services.
-    - crear componentedentro de /components -->     $ ng generate component contacts
+    - crear componente dentro de /components -->     $ ng generate component contacts
     - crear el modelo de datos en /models -->       $ ng g class contact
     - crear el servicio en /services -->            $ ng g s contact 
 
@@ -119,6 +119,6 @@ $ npm i nodemon -D      //para arrancar server cuando nodemon detecte cambios (-
 ** /frontend/src/app/services/contact.service.ts 
     - La funcion de este archivo es definir los metodos que se van a usar y que pueden ser reutilizados para hacer el CRUD a la REST-API.
     - importar el modulo HttpClient.
-    
+
 
 
