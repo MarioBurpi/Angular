@@ -9,7 +9,9 @@ import { Contact } from 'src/app/models/contact';
 export class ListAllContactsComponent implements OnInit {
 
   @Input() contact: Contact;
-  @Output() contactEmitter = new EventEmitter<Contact>();
+  @Output() editEmitter = new EventEmitter<Contact>();
+  @Output() deleteEmitter = new EventEmitter<Contact>();
+
 
 
   constructor() {
@@ -19,8 +21,11 @@ export class ListAllContactsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  emitContact(contact: Contact) {
-    this.contactEmitter.emit(contact);
+  emitToEdit(contact: Contact){
+    this.editEmitter.emit(contact);
+  }
+  emitToDelete(contact: Contact) {
+    this.deleteEmitter.emit(contact);
   }
 
 

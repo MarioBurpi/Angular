@@ -2,7 +2,12 @@ const contactController = {}; // se crea esta constante para que luego pueda ser
 const contactModel = require("../models/contact"); // traemos el modelo para poder hacer consultas a la BD
 
 contactController.addContact = async(req, res) => {
-    const contact = new contactModel(req.body);
+    const contact = new contactModel({
+        group: req.body.group,
+        name: req.body.name,
+        email: req.body.email,
+        telephone: req.body.telephone
+    });
     //console.log(contact);
     await contact.save();
     res.json({ status: "saved" });

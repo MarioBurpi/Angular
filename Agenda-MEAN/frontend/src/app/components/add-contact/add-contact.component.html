@@ -1,35 +1,45 @@
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">{{ cardTitle }}</span>
-                    <form #contactForm="ngForm">
-                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="contactService.selectedContact._id">
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input type="text" name="group" #name="ngModel" [(ngModel)]="contactService.selectedContact.group" placeholder="Enter group">
-                            </div>
-                            <div class="input-field col s12">
-                                <input type="text" name="name" #name="ngModel" [(ngModel)]="contactService.selectedContact.name" placeholder="Enter name">
-                            </div>
-                            <div class="input-field col s12">
-                                <input type="text" name="email" #name="ngModel" [(ngModel)]="contactService.selectedContact.email" placeholder="Enter email">
-                            </div>
-                            <div class="input-field col s12">
-                                <input type="number" name="telephone" #name="ngModel" [(ngModel)]="contactService.selectedContact.telephone">
-                            </div>
-                            <div class="card-action">
+<div class="container" style="display: flex;">
+    <div class="container" style="width: 400px;">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">{{ cardTitle }}</span>
+                        <form #contactForm="ngForm">
+                            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="contactService.selectedContact._id">
+                            <div class="row">
                                 <div class="input-field col s12">
-                                    <button class="btn" (click)="addContact(contactForm)">Save</button>
-                                    <button class="btn" (click)="resetForm(contactForm)">Clean</button>
+                                    <input type="text" name="group" #name="ngModel" [(ngModel)]="contactService.selectedContact.group" placeholder="Enter group">
+                                </div>
+                                <div class="input-field col s12">
+                                    <input type="text" name="name" #name="ngModel" [(ngModel)]="contactService.selectedContact.name" placeholder="Enter name">
+                                </div>
+                                <div class="input-field col s12">
+                                    <input type="text" name="email" #name="ngModel" [(ngModel)]="contactService.selectedContact.email" placeholder="Enter email">
+                                </div>
+                                <div class="input-field col s12">
+                                    <input type="number" name="telephone" #name="ngModel" [(ngModel)]="contactService.selectedContact.telephone">
+                                </div>
+                                <div class="card-action">
+                                    <div class="input-field col s12">
+                                        <button class="btn" (click)="addContact(contactForm)">Save</button>
+                                        <button class="btn" (click)="resetForm(contactForm)">Clean</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="container" *ngIf="!editing; else showContact">
+        <app-list-all-contacts *ngFor="let c of allContacts; let i=index;" [contact]="c" (editEmitter)="editContact($event)" (deleteEmitter)="deleteContact($event)"></app-list-all-contacts>
+    </div>
+    <ng-template #showContact>
+        <div class="container">
+            <app-list-all-contacts [contact]="contactForm.value" (editEmitter)="editContact($event)" (deleteEmitter)="deleteContact($event)"></app-list-all-contacts>
+        </div>
+    </ng-template>
+
 </div>
-<app-list-all-contacts *ngFor="let c of allContacts; let i=index;" [contact]="c" (contactEmitter)="editContact($event)"></app-list-all-contacts>

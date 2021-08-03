@@ -3,10 +3,10 @@
         <li class="collection-item avatar">
             <img src="https://img.icons8.com/dusk/2x/contacts.png" class="circle">
             <span class="title">{{ contact.name }}</span>
+            <a class="waves-effect waves-teal btn-flat" style="float: right;"><i class="tiny material-icons"  (click)="emitToDelete(contact)">delete</i></a>
+            <a class="waves-effect waves-teal btn-flat" style="float: right;"><i class="tiny material-icons"  (click)="emitToEdit(contact)">edit</i></a>
             <p>{{ contact.telephone }} - {{ contact.email }}</p>
             <p>{{ contact.group }}</p>
-            <a class="waves-effect waves-light secondary-content"><i class="tiny material-icons"  (click)="emitContact(contact)">edit</i></a>
-            <br>
         </li>
     </ul>
 </div>

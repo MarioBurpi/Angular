@@ -19,6 +19,8 @@ export class AddContactComponent implements OnInit {
   selectedContact: Contact;
   allContacts: Contact[];
 
+  editing: boolean = false;
+
   constructor(contactService: ContactService) {
     this.contactService = contactService;
     this.selectedContact = new Contact();
@@ -43,15 +45,16 @@ export class AddContactComponent implements OnInit {
     if (form.value._id) {
       this.contactService.putContact(form.value)
         .subscribe(res => {
-          M.toast({ html: `Contact modified` });
+          M.toast({ html: `Updated` });
           this.resetForm(form);
           this.getAllContacts();
           this.cardTitle = "New Contact";
+          this.editing = false;
         });
     } else {
       this.contactService.postContact(form.value)
         .subscribe(res => {
-          M.toast({ html: `Saved Successfully` });
+          M.toast({ html: `Saved` });
           this.resetForm(form);
           this.getAllContacts();
         });
@@ -68,14 +71,20 @@ export class AddContactComponent implements OnInit {
 
   editContact(contact: Contact) {
     this.cardTitle = "Edit Contact";
-    window.scroll(0,0);
+    this.editing = true;
+    window.scroll(0, 0);
     this.contactService.selectedContact = contact;
     this.contactService.putContact(contact);
   }
 
   deleteContact(contact: Contact) {
     console.log("ID: " + contact._id);
-    this.contactService.deleteContact(contact);
-    this.getAllContacts();
+    if (confirm("Delete " + contact.name + "?")) {
+      this.contactService.deleteContact(contact)
+        .subscribe(res => {
+          M.toast({ html: `Deleted` });
+          this.getAllContacts();
+        });
+    }
   }
 }
