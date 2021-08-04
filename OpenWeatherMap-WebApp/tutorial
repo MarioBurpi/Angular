@@ -1,0 +1,14 @@
+******
+$ ng new OpenWeatherMap-WebApp
+- acceder al directorio
+$ ng g s services/weather
+
+** archivo /src/app/services/weather.service
+- import { HttpClient } from '@angular/common/http';
+- inicializar el cliente http y preparar la URI para hacer la consulta mediante un metodo.
+
+** archivo /src/app/app.component.ts
+- hacer las peticiones al service incluyendo el cityName
+
+**
+
