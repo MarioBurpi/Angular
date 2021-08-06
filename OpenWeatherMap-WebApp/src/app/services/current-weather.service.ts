@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CurrentWeatherService {
 
-  apiKey = 'b0147f6411b11c4795a9f9e4bebc27a3';
+  readonly apiKey: string = 'b0147f6411b11c4795a9f9e4bebc27a3';
   readonly URI_CURRENT: string;
   readonly URI_FORECAST: string;
 

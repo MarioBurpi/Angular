@@ -96,7 +96,7 @@
                 <div class="table table-responsive table-sm table-striped" table>
                     <thead>
                         <tr class="table-dark">
-                            <th colspan="9" style="text-align: end;" scope="col">{{cityWeather.name}}
+                            <th colspan="9" style="text-align: end;">{{cityWeather.name}}
                                 <p style="font-size: 0.5em;">({{cityWeather.coord.lat}},{{cityWeather.coord.lon}})</p>
                             </th>
                         </tr>
@@ -114,16 +114,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="table-warning" style="text-align: center;" *ngFor="let temp of cityForecast.list; let i=index;">
-                            <td style="font-size: 0.5em;">{{ cityForecast.list[i].dt_txt }}</td>
-                            <td>{{ cityForecast.list[i].weather[0].icon }} </td>
+                        <tr class="table-primary" style="text-align: center;" *ngFor="let temp of cityForecast.list; let i=index;">
+                            <td>
+                                <p style="font-size: 0.5rem;">{{ cityForecast.list[i].dt_txt }}</p>
+                                <img src="http://openweathermap.org/img/wn/{{ cityForecast.list[i].weather[0].icon }}.png" alt="{{ cityForecast.list[i].weather[0].icon }}">
+                                <figcaption style="font-size: 0.5rem;">{{ cityForecast.list[i].weather[0].description }}</figcaption>
+                            </td>
+                            <td style="font-size: 0.5rem;"></td>
                             <td>{{ cityForecast.list[i].main.temp }}</td>
                             <td>{{ cityForecast.list[i].main.feels_like }}</td>
                             <td>{{ cityForecast.list[i].main.temp_min }}</td>
                             <td>{{ cityForecast.list[i].main.temp_max }}</td>
                             <td>{{ cityForecast.list[i].main.humidity }}</td>
                             <td>{{ cityForecast.list[i].main.pressure }}</td>
-                            <td>{{ cityForecast.list[i].weather[0].description }}</td>
+                            <td></td>
                         </tr>
 
                     </tbody>
