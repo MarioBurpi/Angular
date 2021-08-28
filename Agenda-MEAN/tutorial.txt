@@ -110,7 +110,7 @@ $ npm i nodemon -D      //para arrancar server cuando nodemon detecte cambios (-
 
 
 ** /frontend/src/app/components/contacts/contacts.component.html
-    - Decorar como vamos a querer mostrar el formulario
+    - Diseñar el formulario
     - Preparar el formulario de recogida de datos del contacto con un (ngSubmit), que recogerá los datos de #contactForm,
     que es él mismo.
 

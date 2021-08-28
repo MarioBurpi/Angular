@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <hr>
+    <div class="row">
+        <div class="col-sm-4">
+            <h1>De Padre a Hijo:</h1>
+            <p>Básicamente, se incluye el tag del c-hijo1 dentro del c-padre. En el TS del c-padre se crea un metodo que capture el input-text y lo asigne a una variable. Después, en su html se pasa esta variable como atributo del tag c-hijo1.
+            </p>
+            <p> En el TS del c-hijo se crean los getters y setters (nótese en el código que el setter tiene el decorador <strong>@Input()</strong>) pertinentes para darle acceso <strong>private</strong> al atributo; y se pinta en el componente.</p>
+        </div>
+        <div class="col-sm-4">
+            <h1>De Hijo a Padre:</h1>
+            <p>
+                En este caso, en el c-hijo2 se hace un binding de la variable del TS que captura el valor del input-text y se envía mediante un metodo onClick.
+            </p>
+            <p>El c-padre, llama al tag del c-hijo2 con un evento (enviar), que recibe el mismo nombre que se le puso en la clase del c-hijo2, y al dispararse ese evento, el c-padre responde con un método suyo que copia el valor de la string recibida en
+                un atributo de clase a fin de poder pintarlo.
+            </p>
+        </div>
+        <div class="col-sm-4">
+            <h1>De Hijo a Hijo (Hermanos):</h1>
+            <p>
+                Aquí se trata de combinar la comunicación Hijo-Padre-Hijo.
+            </p>
+            <p>
+                El c-hijo2 crea el evento de igual manera, el c-padre lo escucha, copia ese dato y le hace un binding a un atributo del tag de c-hijo1.
+            </p>
+        </div>
+        <hr>
+    </div>
+
+    <div class="row text-center">
+        <app-padre></app-padre>
+    </div>
+</div>

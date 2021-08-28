@@ -1,0 +1,17 @@
+<div class="row">
+    <hr>
+    <h3><strong>Componente Padre:</strong></h3>
+    <input (keyup)="onKeyUp($event)">
+    <p>** Esto es lo que se recibe desde Componente Hijo 2: <strong>{{textoPadreRecibido}}</strong></p>
+    <hr>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+        <app-hijo [textoHijo]="textoPadre" [textoHermano]="textoPadreRecibidoAEnviar"></app-hijo>
+    </div>
+    <div class="col-sm-4">
+        <app-hijo-emitter (enviarAPadre)="recibirMensaje($event)" (enviarAHermano)="enviarMensaje($event)"></app-hijo-emitter>
+    </div>
+    <div class="col-sm-4">
+    </div>
+</div>
